@@ -34,7 +34,7 @@ const Dashboard = () => {
     });
   };
 
-  if (isLoading) return <Loader />; // Render Loader component while data is loading
+  if (isLoading) return <Loader />; /// Render Loader component while data is loading
   return (
     <>
       <AdminLayout>
