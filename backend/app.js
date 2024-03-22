@@ -25,7 +25,7 @@ process.on("uncaughtException", (err) => {
 
 if (process.env.NODE_ENV !== "PRODUCTION") {
     
-dotenv.config({ path: "backend/config/config.env" });
+dotenv.config({ path: "kitchen Oasis/config.env" });
 }
 
 
