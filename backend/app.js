@@ -90,7 +90,9 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-dotenv.config({ path: `${__dirname}/backend/config/config.env` });
+if (process.env.NODE_ENV !== "PRODUCTION") {
+    dotenv.config({ path: `${__dirname}/backend/config/config.env` });
+}
 
 const app = express();
 
@@ -138,7 +140,8 @@ const server = app.listen(process.env.PORT, () => {
 
 // Handle uncaught exceptions
 process.on("uncaughtException", (err) => {
-  console.error(`Uncaught Exception: ${err}`);
+    console.error(`Uncaught Exception: ${err}`);
+    console.log("server rejected");
   server.close(() => {
     process.exit(1);
   });
@@ -146,7 +149,8 @@ process.on("uncaughtException", (err) => {
 
 // Handle unhandled rejections
 process.on("unhandledRejection", (err) => {
-  console.error(`Unhandled Rejection: ${err}`);
+    console.error(`Unhandled Rejection: ${err}`);
+    console.log("server rejected");
   server.close(() => {
     process.exit(1);
   });
