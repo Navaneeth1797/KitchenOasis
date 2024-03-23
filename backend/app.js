@@ -10,8 +10,8 @@ import path from "path";
 
  import { fileURLToPath } from "url";
 
-let _filename = fileURLToPath(import.meta.url)
-let _dirname = path.dirname(_filename)
+let __filename = fileURLToPath(import.meta.url)
+let __dirname = path.dirname(__filename);
 
 // handle uncaught exceptions
 
@@ -56,7 +56,7 @@ app.use("/api", orderRoutes);
 app.use("/api", paymentRoutes);
 
 if (process.env.NODE_ENV === "PRODUCTION") {
-    app.use(express.static(path.join(_dirname, "../frontend/build")))
+    app.use(express.static(path.join(__dirname, "../frontend/build")))
 
     app.get("*", (req, res) => {
         res.sendFile(path.resolve(__dirname,"../frontend/build/index.html"))
