@@ -1,4 +1,4 @@
 /node_modules
 stripe.exe
 config.env
-.env.production
+configP.env
