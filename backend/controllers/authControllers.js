@@ -17,6 +17,13 @@ export let registerUser = AsyncError(async (req, res, next) => {
    
 })
 
+export let registerAdminUser = AsyncError(async (req, res, next) => {
+  let { name, email, password } = req.body;
+  let user = await User.create({ name, email, password, role: "admin" });
+
+  SendToken(user, 201, res);
+});
+
 
 // login user => /api/login
 export let loginUser = AsyncError(async (req, res, next) => {

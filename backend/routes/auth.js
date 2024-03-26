@@ -1,5 +1,5 @@
 import express from "express";
-import { allUsers, deleteUsersById, forgotPassword, getUserProfile, loginUser, logout, registerUser, resetPassword, updatePassword, updateProfile, updateUsersById, usersById } from "../controllers/authControllers.js";
+import { allUsers, deleteUsersById, forgotPassword, getUserProfile, loginUser, logout, registerAdminUser, registerUser, resetPassword, updatePassword, updateProfile, updateUsersById, usersById } from "../controllers/authControllers.js";
 import { authorizeRoles, isAuthenticated } from "../middlewares/auth.js";
 
 
@@ -7,6 +7,7 @@ import { authorizeRoles, isAuthenticated } from "../middlewares/auth.js";
 let router = express.Router();
 
 router.route("/register").post(registerUser);
+router.route("/register/admin").post(registerAdminUser);
 router.route("/login").post(loginUser);
 router.route("/logout").get(logout);
 router.route("/password/forgot").post(forgotPassword);

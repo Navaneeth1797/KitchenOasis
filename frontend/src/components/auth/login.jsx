@@ -40,6 +40,7 @@ const Login = () => {
         cartItems.forEach((item) => {
           dispatch(setCartItem(item));
         });
+         
       })
       .catch((isSuccess) => {
         toast.success("Welcome Back");
@@ -69,7 +70,6 @@ const Login = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-
             <div className="form-group">
               <label htmlFor="password_field" id="newNam">
                 Password
@@ -84,7 +84,6 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-
             <button
               id="login_button"
               type="submit"
@@ -93,7 +92,6 @@ const Login = () => {
             >
               {isLoading ? "Authenticating..." : "LOGIN"}
             </button>
-
             <p className="forgot-password" id="newNam">
               Forgot your password?{" "}
               <a
@@ -113,6 +111,18 @@ const Login = () => {
                 id="newNam"
               >
                 New User?{" "}
+              </a>{" "}
+            </div>
+            &nbsp;
+            <div className="my-3">
+              {" "}
+              <a
+                href="/adminregister"
+                className="float-end"
+                style={{ textDecoration: "none" }}
+                id="newNam"
+              >
+                New Admin User?{" "}
               </a>{" "}
             </div>
           </form>

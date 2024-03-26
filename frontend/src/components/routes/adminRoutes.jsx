@@ -12,18 +12,21 @@ import ListUsers from '../admin/ListUsers';
 import UpdateUser from '../admin/UpdateUser';
 import ProductReview from '../admin/ProductReview';
 
+
 const adminRoutes = () => {
   
   return (
     <>
-      <Route
+       <Route
         path="/admin/dashboard"
         element={
           <ProtectedRoute admin={true}>
             <Dashboard />
           </ProtectedRoute>
         }
-      />
+      /> 
+    
+
       <Route
         path="/admin/products"
         element={

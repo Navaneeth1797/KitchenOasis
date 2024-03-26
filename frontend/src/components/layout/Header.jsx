@@ -113,12 +113,13 @@ const Header = () => {
                   <BiUser className="me-1" /> {user?.name}
                 </Link>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  {/* Dashboard Link (for admin) */}
-                  {user?.role === "admin" && (
+                    {/* Dashboard Link (for admin)  */}
+                 {user?.role === "admin" && (
                     <Link className="dropdown-item" to="/admin/dashboard">
                       Dashboard
                     </Link>
-                  )}
+                  )} 
+                
                   {/* Orders Link */}
                   <Link className="dropdown-item" to="/me/orders">
                     Orders

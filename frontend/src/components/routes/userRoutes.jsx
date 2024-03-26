@@ -20,6 +20,7 @@ import OrderDetails from "../order/OrderDetails";
 import Invoice from "../invoice/Invoice";
 import Products from "../Products";
 import About from "../About";
+import AdminRegister from "../auth/AdminRegister";
 
 
 
@@ -37,6 +38,7 @@ const userRoutes = () => {
       <Route path="/password/forgot" element={<ForgotPassword />} />
       <Route path="/password/reset/:token" element={<ResetPassowrd />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/adminregister" element={<AdminRegister />} />
       <Route
         path="/my/profile"
         element={
@@ -97,7 +99,6 @@ const userRoutes = () => {
           </ProtectedRoute>
         }
       />
-      
     </>
   );
 };
