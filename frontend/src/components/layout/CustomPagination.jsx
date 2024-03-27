@@ -31,7 +31,7 @@ const StyledPagination = styled(Pagination)`
   }
 `;
 
-const CustomPagination = ({ resPerPage, filterCount }) => {
+const CustomPagination = ({ resPerPage, filterCount = 0 }) => {
   const [currentPage, setCurrentPage] = useState();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();

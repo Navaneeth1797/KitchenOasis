@@ -25,7 +25,7 @@ export let UserApi = createApi({
     updateProfile: builder.mutation({
       query(body) {
         return {
-          url: "profile/update",
+          url: "/profile/update",
           method: "PUT",
           body,
         };
@@ -35,7 +35,7 @@ export let UserApi = createApi({
     updatePassword: builder.mutation({
       query(body) {
         return {
-          url: "password/update",
+          url: "/password/update",
           method: "PUT",
           body,
         };
@@ -44,7 +44,7 @@ export let UserApi = createApi({
     forgotPassword: builder.mutation({
       query(body) {
         return {
-          url: "password/forgot",
+          url: "/password/forgot",
           method: "POST",
           body,
         };
@@ -53,7 +53,7 @@ export let UserApi = createApi({
     resetPassword: builder.mutation({
       query({ token, body }) {
         return {
-          url: `password/reset/${token}`,
+          url: `/password/reset/${token}`,
           method: "PUT",
           body,
         };

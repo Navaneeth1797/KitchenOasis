@@ -103,7 +103,7 @@ const NewProduct = () => {
               <textarea
                 className="form-control"
                 id="description_field"
-                rows="8"
+                rows="2"
                 name="description"
                 value={description}
                 onChange={onChange}

@@ -13,7 +13,7 @@ const Contact = () => {
             this limited-time offer!
           </p>
           <form
-            action="https://formspree.io/f/xwkdkwwq"
+            action="/"
             className="contact-form"
             method="POST"
           >

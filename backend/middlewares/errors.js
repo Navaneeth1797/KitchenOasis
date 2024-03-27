@@ -21,17 +21,17 @@ export default (err, req,res, next) => {
   //handle  Mongoose dublicate key error
   if (err.code === "11000") {
     let message = `Dublicate ${Object.keys(err.keyValue)}entered.`;
-    error = new ErrorHandler(message, 404);
+    error = new ErrorHandler(message, 409);
   }
   //handle wrong jwt error
   if (err.name === "jsonWebTokenError") {
     let message = `json web token is invalid`;
-    error = new ErrorHandler(message, 400);
+    error = new ErrorHandler(message, 401);
   }
   //handle  expired jwt error
   if (err.name === "TokenExpiredError") {
     let message = `json web token is expired`;
-    error = new ErrorHandler(message, 400);
+    error = new ErrorHandler(message, 401);
   }
 
   if (process.env.NODE_ENV === "DEVELOPMENT") {
@@ -45,6 +45,7 @@ export default (err, req,res, next) => {
   if (process.env.NODE_ENV === "PRODUCTION") {
     res.status(error.statusCode).json({
       message: error.message,
+      error: err,
     });
   }
 };

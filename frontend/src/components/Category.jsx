@@ -7,6 +7,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const FeaturedCategories = ({ categories }) => {
+
+  const filteredCategories = categories.filter(
+    (category) => category !== "Select One"
+  );
+
   const settings = {
     infinite: true,
     speed: 500,
@@ -34,7 +39,7 @@ const FeaturedCategories = ({ categories }) => {
     <CategoryContainer>
       <h2 className="catH2">Featured Categories</h2>
       <Slider {...settings}>
-        {categories.map((category, index) => (
+        {filteredCategories.map((category, index) => (
           <CategoryCard key={index}>
             <CategoryName>{category}</CategoryName>
             <Link to={`/products?category=${encodeURIComponent(category)}`}>

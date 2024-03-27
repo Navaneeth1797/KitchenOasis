@@ -7,8 +7,8 @@ import MetaData from '../layout/MetaData';
 import Loader from '../layout/Loader';
 
 const UpdatePassword = () => {
-    let [oldPassword, setOldPassword] = useState()
-    let [newPassword, setNewPassword] = useState();
+    let [oldPassword, setOldPassword] = useState("")
+    let [password, setPassword] = useState("");
     let navigate = useNavigate();
     let [PasswordProfile, { isLoading, error, isSuccess }] =
       useUpdatePasswordMutation();
@@ -27,8 +27,9 @@ const UpdatePassword = () => {
       e.preventDefault();
       let userData = {
           oldPassword,
-          newPassword,
+          password,
       };
+       
       PasswordProfile(userData);
   };
   
@@ -67,8 +68,8 @@ const UpdatePassword = () => {
                   type="password"
                   id="name_field"
                   className="form-control"
-                  value={newPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
 

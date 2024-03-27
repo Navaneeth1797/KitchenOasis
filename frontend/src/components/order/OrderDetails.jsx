@@ -38,9 +38,12 @@ const OrderDetails = () => {
             <h3 className="mt-5 mb-4" id="updateP">
               Your Order Details
             </h3>
-            <a className="btn btn-success" href="/invoice/order/order-id">
-              <i className="fa fa-print"></i> Invoice
-            </a>
+            <Link
+              to={`/invoice/order/${order?._id}`}
+              className="btn btn-success ms-2"
+            >
+              Invoice
+            </Link>
           </div>
           <table className="table table-striped table-bordered" id="newNam">
             <tbody>

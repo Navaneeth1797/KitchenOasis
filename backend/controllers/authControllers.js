@@ -128,17 +128,23 @@ export let getUserProfile = AsyncError(async (req, res, next) => {
 });
 //create update password => api/password/update
 export let updatePassword = AsyncError(async (req, res, next) => {
+   console.log(req.body);
   let user = await User.findById(req?.user?._id).select("+password");
-  // check the previous user password
-  let isPasswordMatched = await user.comparePassword(req.body.oldPassword);
-  if (!isPasswordMatched) {
-    return next(new ErrorHandler("old password is incorrect", 400));
+  try {
+    // check the previous user password
+    let isPasswordMatched = await user.comparePassword(req.body.oldPassword);
+    if (!isPasswordMatched) {
+      return next(new ErrorHandler("old password is incorrect", 400));
+    }
+    user.password = req.body.password;
+    user.save();
+    res.status(200).json({
+      success: true,
+    });
+  } catch (error) {
+    console.error("Validation Error:", error.message); // Log validation error
+    next(error);
   }
-  user.password = req.body.password;
-  user.save();
-  res.status(200).json({
-    success : true,
-  });
 });
 //update user profile => api/profile/update
 export let updateProfile = AsyncError(async (req, res, next) => {

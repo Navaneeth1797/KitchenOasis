@@ -13,7 +13,7 @@ import NoFound from "../layout/NoFound";
 const GetProductsById = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const [activeImg, setActiveImg] = useState("");
   const { data, isLoading, error, isError } = useGetProductsByIdQuery(id);
   const product = data?.product;
@@ -32,7 +32,7 @@ const GetProductsById = () => {
   }, [isError, error?.data?.message]);
 
   const increaseQuantity = () => {
-    if (quantity < product.stock) {
+    if (quantity < product?.stock) {
       setQuantity((prevQuantity) => prevQuantity + 1);
     }
   };
@@ -128,7 +128,7 @@ const GetProductsById = () => {
                 className="form-control count d-inline"
                 value={quantity}
                 readOnly
-                style={{ width: "50px" }}
+                style={{ width: "80px" }}
                
               />
               <span className="btn btn-primary plus" onClick={increaseQuantity}>

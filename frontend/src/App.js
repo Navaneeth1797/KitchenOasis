@@ -17,19 +17,22 @@ function App() {
   let userRoutes = useUserRoutes();
   let adminRoutes = useAdminRoutes();
   return (
-    <Router>
-      <div className="App">
-        <Toaster position="top-center" />
-        <Header />
+        <Router>
+          <div className="App">
+            <Toaster position="top-center" />
 
-        <Routes>
-          {userRoutes}
-          {adminRoutes}
-          <Route path="*" element={<NoFound />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+            <Header />
+
+            <Routes>
+              {userRoutes}
+              {adminRoutes}
+              <Route path="*" element={<NoFound />} />
+            </Routes>
+
+            <Footer />
+          </div>
+        </Router>
+      
   );
 }
 
