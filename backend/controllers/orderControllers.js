@@ -51,7 +51,7 @@ export let getOrderDetailsById = AsyncError(async (req, res, next) => {
 });
 // get all orders details-admin  => /api/admin/orders
 export let allOrders = AsyncError(async (req, res, next) => {
-    let order = await Order.find({ user: req.user._id });
+    let order = await Order.find();
     
     res.status(200).json({
         order,
