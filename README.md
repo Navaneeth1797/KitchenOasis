@@ -87,7 +87,7 @@ Mobile-Friendly: The application is designed to be responsive and accessible acr
 ## Stripe Payment
 When testing the payment functionality using Stripe, you can use the following dummy address to fill up the address form:
 
- `Address: 123 Main Street, Anytown, CA 12345, USA`
+ - **Address** : `123 Main Street, Anytown, CA 12345, USA`
 
 ## Forgot Password
 If you forget your password and need to reset it, make sure to sign up for `Mailtrap` to receive the password reset email. The reset password link will be sent to your email address associated with your account.
